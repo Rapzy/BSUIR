@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.InfoRate = new System.Windows.Forms.Label();
             this.InfoDiscription = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,20 +79,17 @@
             // 
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Steel Arm",
-            "Pistol",
-            "Rifle"});
             this.comboBox2.Location = new System.Drawing.Point(572, 12);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(171, 24);
             this.comboBox2.TabIndex = 3;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(572, 286);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 38);
+            this.button2.Size = new System.Drawing.Size(105, 38);
             this.button2.TabIndex = 4;
             this.button2.Text = "Shoot";
             this.button2.UseVisualStyleBackColor = true;
@@ -106,7 +104,7 @@
             this.panel2.Controls.Add(this.InfoName);
             this.panel2.Location = new System.Drawing.Point(572, 62);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(287, 170);
+            this.panel2.Size = new System.Drawing.Size(377, 170);
             this.panel2.TabIndex = 5;
             // 
             // InfoAmmo
@@ -115,9 +113,9 @@
             this.InfoAmmo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.InfoAmmo.Location = new System.Drawing.Point(3, 100);
             this.InfoAmmo.Name = "InfoAmmo";
-            this.InfoAmmo.Size = new System.Drawing.Size(69, 25);
+            this.InfoAmmo.Size = new System.Drawing.Size(80, 25);
             this.InfoAmmo.TabIndex = 2;
-            this.InfoAmmo.Text = "Ammo";
+            this.InfoAmmo.Text = "Ammo: ";
             // 
             // InfoType
             // 
@@ -125,9 +123,9 @@
             this.InfoType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.InfoType.Location = new System.Drawing.Point(3, 40);
             this.InfoType.Name = "InfoType";
-            this.InfoType.Size = new System.Drawing.Size(57, 25);
+            this.InfoType.Size = new System.Drawing.Size(68, 25);
             this.InfoType.TabIndex = 1;
-            this.InfoType.Text = "Type";
+            this.InfoType.Text = "Type: ";
             // 
             // InfoName
             // 
@@ -135,9 +133,9 @@
             this.InfoName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.InfoName.Location = new System.Drawing.Point(3, 10);
             this.InfoName.Name = "InfoName";
-            this.InfoName.Size = new System.Drawing.Size(64, 25);
+            this.InfoName.Size = new System.Drawing.Size(75, 25);
             this.InfoName.TabIndex = 0;
-            this.InfoName.Text = "Name";
+            this.InfoName.Text = "Name: ";
             // 
             // label1
             // 
@@ -154,9 +152,9 @@
             this.InfoRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.InfoRate.Location = new System.Drawing.Point(3, 130);
             this.InfoRate.Name = "InfoRate";
-            this.InfoRate.Size = new System.Drawing.Size(90, 25);
+            this.InfoRate.Size = new System.Drawing.Size(101, 25);
             this.InfoRate.TabIndex = 3;
-            this.InfoRate.Text = "Fire Rate";
+            this.InfoRate.Text = "Fire Rate: ";
             // 
             // InfoDiscription
             // 
@@ -164,15 +162,26 @@
             this.InfoDiscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.InfoDiscription.Location = new System.Drawing.Point(3, 70);
             this.InfoDiscription.Name = "InfoDiscription";
-            this.InfoDiscription.Size = new System.Drawing.Size(102, 25);
+            this.InfoDiscription.Size = new System.Drawing.Size(113, 25);
             this.InfoDiscription.TabIndex = 4;
-            this.InfoDiscription.Text = "Discription";
+            this.InfoDiscription.Text = "Discription: ";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(763, 286);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(105, 38);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Reload";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 537);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button2);
@@ -203,6 +212,7 @@
         private System.Windows.Forms.Label InfoName;
         private System.Windows.Forms.Label InfoDiscription;
         private System.Windows.Forms.Label InfoRate;
+        private System.Windows.Forms.Button button3;
     }
 }
 

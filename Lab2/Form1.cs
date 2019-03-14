@@ -59,7 +59,6 @@ namespace Lab2
             txt.Height = 15;
             txt.Width = 150;
             txt.Top = offset;
-            Console.WriteLine(txt.Name);
             panel1.Controls.Add(txt);
 
             Label lbl = new Label();
@@ -110,17 +109,19 @@ namespace Lab2
             comboBox2.SelectedIndex = 0;
             foreach (Control obj in panel1.Controls)
             {
-                obj.ResetText();
+                if (obj is TextBox)
+                {
+                    obj.ResetText();
+                }
             }
+            UpdateInfo();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             object selected = comboBox2.SelectedItem;
             GetGunType(selected).Shoot();
-        }
-        public void UpdateInfo() {
-            l
+            UpdateInfo();
         }
         public Gun GetGunType(object obj)
         {
@@ -137,6 +138,45 @@ namespace Lab2
                 return (Rifle)obj;
             }
             return (Firearm)obj;
+        }
+        public void UpdateInfo()
+        {
+            foreach (Label obj in panel2.Controls)
+            {
+                obj.Text = obj.Text.Substring(0, obj.Text.IndexOf(": ") + 2);
+            }
+            InfoAmmo.Visible = false;
+            InfoRate.Visible = false;
+            Gun selected = GetGunType(comboBox2.SelectedItem);
+            InfoName.Text += selected.name;
+            InfoType.Text += selected.type;
+            InfoDiscription.Text += selected.GetFullType();
+            if (selected is Firearm)
+            {
+                InfoAmmo.Text += (selected as Firearm).ammo.ToString()+"/"+ (selected as Firearm).clip_size;
+                InfoAmmo.Visible = true;
+            }
+            if (selected is Rifle)
+            { 
+                InfoRate.Text += (selected as Rifle).fire_rate.ToString();
+                InfoAmmo.Visible = true;
+                InfoRate.Visible = true;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateInfo();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Gun selected = GetGunType(comboBox2.SelectedItem);
+            if (selected is Firearm)
+            {
+                (selected as Firearm).Reload();
+            }
+            UpdateInfo();
         }
     }
 }
